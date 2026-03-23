@@ -12,9 +12,5 @@ exports.search = async (query) => {
     }
   });
 
-  return res.data.items.map(item => ({
-    id: item.id.videoId,
-    title: item.snippet.title,
-    thumbnail: item.snippet.thumbnails.default.url
-  }));
+  return res.data.items;
 };
