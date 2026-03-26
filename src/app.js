@@ -19,15 +19,11 @@ app.use(express.json());
 
 app.use('/api', auth);
 app.use('/api/youtube', rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 10, // max 10 requests per IP
+  windowMs: 60 * 1000,
+  max: 50, // 50 searches per minute
   message: 'Too many requests'
 }), youtubeRoutes);
-app.use('/api/audio', rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 10, // max 10 requests per IP
-  message: 'Too many requests'
-}), audioRoutes);
+app.use('/api/audio', audioRoutes);
 
 
 module.exports = app;

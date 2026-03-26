@@ -10,7 +10,11 @@ exports.getAudioUrl = async (videoId) => {
 
   const url = await ytdlp(youtubeUrl, {
     format: 'bestaudio',
-    getUrl: true
+    getUrl: true,
+    noPlaylist: true,
+    noWarnings: true,
+    noCheckCertificate: true,
+    // Using simple options to reduce yt-dlp startup time
   });
 
   const cleanUrl = url.trim();

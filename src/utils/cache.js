@@ -1,6 +1,6 @@
 const NodeCache = require('node-cache');
 
-const cache = new NodeCache({ stdTTL: 300 }); // 5 min
+const cache = new NodeCache({ stdTTL: 14400 }); // 4 hours
 
 if (process.env.NODE_ENV === 'development') {
     cache.flushAll();
