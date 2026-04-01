@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const youtubeRoutes = require('./routes/youtube.routes');
 const audioRoutes = require('./routes/audio.routes');
+const downloadRoutes = require('./routes/download.routes'); // Add this
 const auth = require('../middleware/auth');
 const rateLimit = require('express-rate-limit');
 
@@ -24,6 +25,7 @@ app.use('/api/youtube', rateLimit({
   message: 'Too many requests'
 }), youtubeRoutes);
 app.use('/api/audio', audioRoutes);
+app.use('/api/download', downloadRoutes); // Add this
 
 
 module.exports = app;
